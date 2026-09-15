@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace ZombieParty.Models
 {
@@ -23,5 +24,8 @@ namespace ZombieParty.Models
 
         [StringLength(255, MinimumLength = 1, ErrorMessage = "{0} requires a value between {1} and {2}.")]
         public string ShortDesc { get; set; }
+
+        [ValidateNever]
+        public List<HuntingLog> HuntingLogs { get; set; }
     }
 }
